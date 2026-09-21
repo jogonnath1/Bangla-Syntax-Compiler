@@ -1,255 +1,279 @@
-# DogeshBangla Compiler 🇧🇩
-## CSE-4114 | Compiler Design and Construction Sessional
+<div align="center">
 
-> A Bangla-inspired programming language compiler built in C++, targeting Python.  
-> Invented, designed, and implemented as a semester project.
+# 🇧🇩 বাংলা সিনট্যাক্স কম্পাইলার
+### Bangla Syntax Compiler
 
-## Course Teacher
-**Alian Ahmed Ferdous**  
-*Adjunct Lecturer*  
+[![Language](https://img.shields.io/badge/Language-C++-blue.svg)](https://isocpp.org/)
+[![Course](https://img.shields.io/badge/Course-CSE--4114-green.svg)](https://github.com/jogonnath1/Bangla-Syntax-Compiler)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/jogonnath1/Bangla-Syntax-Compiler)
+[![University](https://img.shields.io/badge/University-LUS-orange.svg)](https://lus.ac.bd)
+
+> A compiler that understands **Bengali (Bangla) keywords** — write code in your mother tongue!
+
+</div>
 
 ---
 
-## What is DogeshBangla?
+## 📖 Project Overview
 
-**DogeshBangla** (`.dbs`) is an original toy programming language that uses romanized Bangla keywords to make programming accessible to Bangla-speaking students. The compiler translates `.dbs` source files into executable Python (`.py`) files.
+**Bangla Syntax Compiler** is a custom programming language compiler built in **C++** that allows writing programs using **Bengali keywords**. Instead of English keywords like `if`, `while`, `print`, you write `যদি`, `যতক্ষণ`, `দেখাও`.
+
+This project is developed as a **group sessional project** for:
+
+> 📚 **CSE-4114 — Compiler Design and Construction Sessional**
+> 👨‍🏫 **Instructor:** Alian Ahmed Ferdous, Adjunct Lecturer
+> 🏫 **Leading University, Sylhet (LUS)**
+
+---
+
+## 👥 Team Members & Responsibilities
+
+| Member | Responsibility | Part 1 | Part 2 |
+|--------|---------------|--------|--------|
+| **Jogonnath Das Talukder** | Lexer (শাব্দিক বিশ্লেষক) | ✅ | ✅ |
+| **Ellen** | Semantic Analyzer (অর্থ বিশ্লেষক) | ✅ | ✅ |
+| **Sami** | Code Generator (কোড তৈরিকারক) | ✅ | ✅ |
+| **Sayem** | Parser (সিনট্যাক্স বিশ্লেষক) | ✅ | ✅ |
+
+---
+
+## 🏗️ Compiler Pipeline
 
 ```
-// DogeshBangla source (hello.dbs)
-ধরি সংখ্যা x = 10;
-ধরি দশমিক pi = 3.14;
+Source Code (.bsc)
+       │
+       ▼
+┌─────────────┐
+│    LEXER    │  ← Tokenizes Bengali source code (Jogonnath)
+└──────┬──────┘
+       │ Token Stream
+       ▼
+┌─────────────┐
+│   PARSER    │  ← Builds Abstract Syntax Tree (Sayem)
+└──────┬──────┘
+       │ AST
+       ▼
+┌──────────────────┐
+│ SEMANTIC ANALYZER│  ← Type checking, scope resolution (Ellen)
+└──────┬───────────┘
+       │ Validated AST
+       ▼
+┌──────────────┐
+│ CODE GENERATOR│  ← Generates output/Python code (Sami)
+└──────────────┘
+```
 
-যদি (x > 5) শুরু
-    দেখাও x;
+---
+
+## 📁 Repository Structure
+
+```
+Bangla-Syntax-Compiler/
+├── 📂 Part 1/                        ← Part 1: Basic Compiler (Lexer + Parser + Semantic + CodeGen)
+│   ├── 📂 Jogonnath/                 ← Lexer implementation
+│   │   ├── src/
+│   │   │   ├── token.h              ← Token definitions
+│   │   │   ├── lexer.h / lexer.cpp  ← Lexer (Jogonnath)
+│   │   │   ├── ast.h                ← AST node structures
+│   │   │   ├── parser.h / parser.cpp← Parser (Sayem)
+│   │   │   ├── semantic.h/.cpp      ← Semantic Analyzer (Ellen)
+│   │   │   ├── codegen.h/.cpp       ← Code Generator (Sami)
+│   │   │   ├── error.h              ← Error handling
+│   │   │   └── main.cpp             ← Entry point
+│   │   ├── build/
+│   │   │   └── banglasyntax.exe    ← Compiled binary
+│   │   ├── examples/
+│   │   │   ├── hello.bsc
+│   │   │   ├── math_test.bsc
+│   │   │   ├── age_check.bsc
+│   │   │   ├── circle_area.bsc
+│   │   │   ├── swap.bsc
+│   │   │   ├── type_error.bsc
+│   │   │   └── undeclared_error.bsc
+│   │   └── README.md
+│   ├── 📂 Ellen/                     ← Ellen's contribution
+│   ├── 📂 Sami/                      ← Sami's contribution
+│   └── 📂 Sayem/                     ← Sayem's contribution
+│
+└── 📂 Part 2/                        ← Part 2: Extended Compiler (Loops + Advanced Features)
+    ├── 📂 Jogonnath/                 ← Extended Lexer
+    │   ├── src/ build/ examples/
+    │   └── README.md
+    ├── 📂 Ellen/
+    ├── 📂 Sami/
+    └── 📂 Sayem/
+```
+
+---
+
+## 🔤 Bangla Keyword Reference
+
+| Bengali Keyword | English Equivalent | Description |
+|----------------|-------------------|-------------|
+| `ধরি` | `let` / `var` | Variable declaration |
+| `সংখ্যা` | `int` | Integer type |
+| `দশমিক` | `float` | Float type |
+| `দেখাও` | `print` | Print output |
+| `যদি` | `if` | Conditional |
+| `নাহলে` | `else` | Else branch |
+| `যতক্ষণ` | `while` | While loop |
+| `শুরু` | `{` | Block start |
+| `শেষ` | `}` | Block end |
+
+---
+
+## 🔢 Token Types
+
+| Token | Example |
+|-------|---------|
+| `KEYWORD` | `ধরি`, `যদি`, `দেখাও` |
+| `TYPE` | `সংখ্যা`, `দশমিক` |
+| `IDENTIFIER` | `বয়স`, `ফল`, `pi` |
+| `INTEGER_LIT` | `10`, `5`, `100` |
+| `FLOAT_LIT` | `3.14`, `5.5` |
+| `STRING_LIT` | `"হ্যালো বাংলা!"` |
+| `OPERATOR` | `+`, `-`, `*`, `/`, `=`, `==`, `!=`, `>`, `<` |
+| `SEMI` | `;` |
+
+---
+
+## 💻 Code Examples
+
+### Hello World
+```
+দেখাও "সারা বিশ্বের শ্রেষ্ঠ কম্পাইলার, ডগেশবাংলা!";
+```
+
+### Variable & Math
+```
+ধরি সংখ্যা a = 10;
+ধরি সংখ্যা b = 5;
+ধরি সংখ্যা c = 2;
+ধরি সংখ্যা ফল = a + b * c;
+দেখাও "গণনার ফল:";
+দেখাও ফল;
+```
+
+### If-Else Condition
+```
+ধরি সংখ্যা বয়স = 16;
+যদি (বয়স > 17) শুরু
+    দেখাও "আপনি ভোট দিতে পারবেন!";
+শেষ
 নাহলে শুরু
-    দেখাও pi;
+    দেখাও "আপনি ভোটের বয়স হয়নি।";
 শেষ
 ```
 
-Compiles to:
+### While Loop (Part 2)
+```
+ধরি সংখ্যা n = 5;
+ধরি সংখ্যা ফ্যাক্টরিয়াল = 1;
+ধরি সংখ্যা i = 1;
+যতক্ষণ (i <= n) শুরু
+    ফ্যাক্টরিয়াল = ফ্যাক্টরিয়াল * i;
+    i = i + 1;
+শেষ
+দেখাও "৫ এর ফ্যাক্টরিয়াল:";
+দেখাও ফ্যাক্টরিয়াল;
+```
 
-```python
-# Generated by DogeshBangla Compiler v1.0
-x = int(10)
-pi = float(3.14)
-
-if (x > 5):
-    print(x)
-else:
-    print(pi)
+### Fibonacci Sequence (Part 2)
+```
+ধরি সংখ্যা a = 0;
+ধরি সংখ্যা b = 1;
+ধরি সংখ্যা সীমা = 8;
+ধরি সংখ্যা i = 0;
+দেখাও "ফিবোনাচি ধারা:";
+দেখাও a;
+দেখাও b;
+যতক্ষণ (i < সীমা) শুরু
+    ধরি সংখ্যা tmp = a + b;
+    a = b;
+    b = tmp;
+    দেখাও b;
+    i = i + 1;
+শেষ
 ```
 
 ---
 
-## Language Keywords
-
-| DogeshBangla | Meaning         | English Equivalent |
-|---|---|---|
-| `ধরি`      | Declare variable | `let` / `var`     |
-| `সংখ্যা`    | Integer type     | `int`             |
-| `দশমিক`   | Float type       | `float`           |
-| `যদি`       | If               | `if`              |
-| `নাহলে`     | Else             | `else`            |
-| `যতক্ষণ`   | While            | `while`           |
-| `দেখাও`     | Print/Output     | `print`           |
-| `শুরু`      | Begin block      | `{`               |
-| `শেষ`      | End block        | `}`               |
-
----
-
-## Project Structure
-
-```
-DogeshBangla/
-├── src/
-│   ├── main.cpp        ← Entry point + compilation pipeline
-│   ├── token.h         ← Token types and Token struct
-│   ├── error.h         ← Error handler (no-crash design)
-│   ├── lexer.h         ← Lexer interface
-│   ├── lexer.cpp       ← Lexer implementation
-│   ├── ast.h           ← All AST node classes
-│   ├── parser.h        ← Parser interface
-│   ├── parser.cpp      ← Recursive descent parser
-│   ├── semantic.h      ← Semantic analyzer interface
-│   ├── semantic.cpp    ← Type checker + symbol table
-│   ├── codegen.h       ← Code generator interface
-│   └── codegen.cpp     ← Python code generator
-├── examples/
-│   ├── hello.dbs        ← Hello world example
-│   ├── factorial.dbs    ← Factorial using while loop
-│   └── fibonacci.dbs    ← Fibonacci sequence
-├── docs/
-│   ├── grammar.md      ← Full BNF grammar
-│   ├── uml.md          ← UML class diagrams
-│   └── report.md       ← Final report (Pitch + Design + Grammar)
-├── slides/
-│   └── presentation.md ← Presentation slide content
-├── CMakeLists.txt      ← CMake build configuration
-└── README.md           ← This file
-```
-
----
-
-## Build Instructions
+## ▶️ How to Run
 
 ### Prerequisites
-- CMake 3.16+
-- A C++17 compiler (g++, clang++, or MSVC)
-- Python 3 (to run the generated output)
+- Windows OS
+- No installation needed — just the `.exe` file!
 
-### Build with CMake
+### Run a Program
+```powershell
+# Run a .bsc file
+.\build\banglasyntax.exe examples\hello.bsc
 
-```bash
-# 1. Create build directory
-mkdir build && cd build
-
-# 2. Configure
-cmake ..
-
-# 3. Compile
-cmake --build .
-
-# 4. The compiler binary is now at:
-#    build/dogeshbangla   (Linux/Mac)
-#    build/Debug/dogeshbangla.exe   (Windows)
+# View token stream (debug mode)
+.\build\banglasyntax.exe examples\math_test.bsc --tokens
 ```
 
-### Build with g++ directly (alternative)
+### Example Output
+```
+====================================================
+ বাংলা সিনট্যাক্স কম্পাইলার  --  পর্ব ১
+ CSE-4114 | কম্পাইলার ডিজাইন সেশনাল
+====================================================
+ দলের সদস্য: জগন্নাথ (Jogonnath)
+ দায়িত্ব  : ধাপ ১ -- শাব্দিক বিশ্লেষক (Lexer)
+====================================================
 
-```bash
-g++ -std=c++17 -Wall -o dogeshbangla \
-    src/main.cpp src/lexer.cpp src/parser.cpp \
-    src/semantic.cpp src/codegen.cpp -Isrc
+কম্পাইলেশন সফল!
 ```
 
 ---
 
-## Usage
+## 🛠️ Build from Source
 
-```bash
-# Compile a DogeshBangla source file
-./dogeshbangla examples/hello.dbs
-
-# Run the generated Python output
-python examples/hello.py
-
-# Show all tokens (debug mode)
-./dogeshbangla examples/hello.dbs --tokens
-
-# Only lex + parse + type-check, no output file
-./dogeshbangla examples/hello.dbs --no-codegen
+```powershell
+# Compile using g++
+g++ -o build/banglasyntax.exe src/main.cpp src/lexer.cpp src/parser.cpp src/semantic.cpp src/codegen.cpp -std=c++17
 ```
 
 ---
 
-## Running the Examples
+## 📋 Example Files
 
-```bash
-# Example 1: Hello World + arithmetic
-./dogeshbangla examples/hello.dbs
-python examples/hello.py
-
-# Example 2: Factorial of 6 (answer: 720)
-./dogeshbangla examples/factorial.dbs
-python examples/factorial.py
-
-# Example 3: First 10 Fibonacci numbers
-./dogeshbangla examples/fibonacci.dbs
-python examples/fibonacci.py
-```
-
----
-
-## Language Features (Divided per Project Requirements)
-
-### Part 1: Minimum Acceptable Features (Before While Loop)
-| Feature | Status | Example |
-|---|---|---|
-| Two data types | ✅ | `সংখ্যা` (int) and `দশমিক` (float) |
-| Type checking | ✅ | Error: float → int variable |
-| Arithmetic operations | ✅ | `x * y + z / 2` |
-| Correct operator precedence | ✅ | Multiplication/Division before Addition/Subtraction |
-| Assignment statements | ✅ | `x = x + 1;` |
-| Conditional control (IF-ELSE) | ✅ | `যদি (x > 5) শুরু...শেষ নাহলে শুরু...শেষ` |
-
-### Part 2: Minimum Acceptable Features (While Loop to End)
-| Feature | Status | Example |
-|---|---|---|
-| Looping control (WHILE) | ✅ | `যতক্ষণ (i < n) শুরু...শেষ` |
-| Basic syntax error recovery | ✅ | Panic-mode: skip to `;` or `শেষ` |
-| No runtime crashes | ✅ | Graceful error collection, safe AST evaluation |
-| Valid Java/Python output | ✅ | Translates to cleanly indented Python (`.py`) |
+| File | Description |
+|------|-------------|
+| `hello.bsc` | Simple print statement |
+| `math_test.bsc` | Arithmetic operations |
+| `age_check.bsc` | If-else condition |
+| `circle_area.bsc` | Area calculation |
+| `swap.bsc` | Variable swapping |
+| `factorial_test.bsc` | Factorial using loop (Part 2) |
+| `fibonacci_test.bsc` | Fibonacci series (Part 2) |
+| `countdown.bsc` | Countdown loop (Part 2) |
+| `sum_loop.bsc` | Sum using loop (Part 2) |
+| `type_error.bsc` | Type mismatch error demo |
+| `undeclared_error.bsc` | Undeclared variable error demo |
 
 ---
 
-## Error Handling Examples
+## 📌 Project Parts
 
-```
-// Undeclared variable
-দেখাও ajob;
-→ [SEMANTIC ERROR] Line 1, Col 8: Undeclared variable 'ajob'.
-
-// Type mismatch
-ধরি সংখ্যা x = 3.14;
-→ [SEMANTIC ERROR] Line 1, Col 7:
-  Type mismatch: cannot assign দশমিক value to সংখ্যা variable 'x'.
-
-// Syntax error + recovery
-ধরি সংখ্যা x
-ধরি সংখ্যা y = 10;
-→ [SYNTAX ERROR] Line 1: Expected '=' after variable name
-  (Recovery: continued parsing from line 2)
-```
+| | Part 1 | Part 2 |
+|---|--------|--------|
+| **Lexer** | ✅ Basic tokenization | ✅ Extended with loop tokens |
+| **Parser** | ✅ Basic AST | ✅ Loop & advanced parsing |
+| **Semantic** | ✅ Type & scope check | ✅ Enhanced analysis |
+| **Code Gen** | ✅ Basic output | ✅ Loop code generation |
+| **Loops** | ❌ | ✅ `যতক্ষণ` (while) |
+| **Examples** | 7 files | 11 files |
 
 ---
 
-## Compiler Phases
+<div align="center">
 
-| Phase | Component | File |
-|---|---|---|
-| 1. Lexical Analysis | `Lexer` | `lexer.h/.cpp` |
-| 2. Parsing | `Parser` | `parser.h/.cpp` |
-| 3. Semantic Analysis | `SemanticAnalyzer` | `semantic.h/.cpp` |
-| 4. Code Generation | `CodeGenerator` | `codegen.h/.cpp` |
+**বাংলা সিনট্যাক্স কম্পাইলার** — CSE-4114 Sessional Project
 
----
+*Leading University, Sylhet | Compiler Design and Construction*
 
-## Documentation
+Made with ❤️ by **Jogonnath**, **Ellen**, **Sami** & **Sayem**
 
-| Document | Location | Contents |
-|---|---|---|
-| BNF Grammar | `docs/grammar.md` | Complete formal grammar |
-| UML Diagrams | `docs/uml.md` | All class diagrams |
-| Final Report | `docs/report.md` | Pitch + Design + Grammar |
-| Presentation | `slides/presentation.md` | 10 slide deck content |
-
----
-
-## Git Commit Guidelines
-
-> As required by CSE-4114 project policy: minimum **3 meaningful commits per week per member**
-
-Good commit message examples:
-```
-✅ "Implement Lexer: add keyword recognition and number scanning"
-✅ "Parser: add IF-ELSE parsing with panic-mode error recovery"
-✅ "Semantic: implement type checking for binary expressions"
-✅ "CodeGen: emit properly-indented Python for while loops"
-✅ "Fix: handle empty blocks in code generator with 'pass'"
-
-❌ "changed stuff"
-❌ "update"
-❌ "fix"
-```
-
----
-
-## Academic Information
-
-- **Course:** CSE-4114 Compiler Design and Construction Sessional
-- **Project Type:** Team Project
-- **Language Name:** DogeshBangla
-- **Compiler Language:** C++17
-- **Target Language:** Python
-- **Deliverables:** Compiler + BNF Grammar + UML + Final Report + Presentation
-
+</div>
