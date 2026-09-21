@@ -16,17 +16,22 @@
 
 ## 📖 Project Overview
 
-**Bangla Syntax Compiler** is a custom programming language compiler built in **C++** that allows writing programs using **Bengali keywords**. Instead of English keywords like `if`, `while`, `print`, you write `যদি`, `যতক্ষণ`, `দেখাও`.
-
-This project is developed as a **group sessional project** for:
-
-> 📚 **CSE-4114 — Compiler Design and Construction Sessional**
-> 👨‍🏫 **Instructor:** Alian Ahmed Ferdous, Adjunct Lecturer
-> 🏫 **Leading University, Sylhet (LUS)**
+**Bangla Syntax Compiler** is a custom programming language compiler built in **C++** that allows writing programs using **Bengali keywords**. Instead of English keywords like `if`, `while`, `print`, you write in Bengali: `যদি`, `যতক্ষণ`, `দেখাও`.
 
 ---
 
-## 👥 Team Members & Responsibilities
+## 🎓 Course Information
+
+| Field | Details |
+|-------|---------|
+| **Course** | CSE-4114 — Compiler Design and Construction Sessional |
+| **University** | Leading University, Sylhet (LUS) |
+| **Instructor** | Alian Ahmed Ferdous (Adjunct Lecturer) |
+| **Session** | 8th Semester |
+
+---
+
+## 👥 Team Members
 
 | Member | Responsibility | Part 1 | Part 2 |
 |--------|---------------|--------|--------|
@@ -128,9 +133,9 @@ Bangla-Syntax-Compiler/
 |-------|---------|
 | `KEYWORD` | `ধরি`, `যদি`, `দেখাও` |
 | `TYPE` | `সংখ্যা`, `দশমিক` |
-| `IDENTIFIER` | `বয়স`, `ফল`, `pi` |
-| `INTEGER_LIT` | `10`, `5`, `100` |
-| `FLOAT_LIT` | `3.14`, `5.5` |
+| `IDENTIFIER` | `বয়স`, `যোগফল`, `গণক` |
+| `INTEGER_LIT` | `১০`, `৫`, `১০০` |
+| `FLOAT_LIT` | `৩.১৪`, `৫.৫` |
 | `STRING_LIT` | `"হ্যালো বাংলা!"` |
 | `OPERATOR` | `+`, `-`, `*`, `/`, `=`, `==`, `!=`, `>`, `<` |
 | `SEMI` | `;` |
@@ -141,60 +146,139 @@ Bangla-Syntax-Compiler/
 
 ### Hello World
 ```
-দেখাও "সারা বিশ্বের শ্রেষ্ঠ কম্পাইলার, ডগেশবাংলা!";
+দেখাও "স্বাগতম, বাংলা কম্পাইলার!";
 ```
+**Output:** `স্বাগতম, বাংলা কম্পাইলার!`
+
+---
 
 ### Variable & Math
 ```
-ধরি সংখ্যা a = 10;
-ধরি সংখ্যা b = 5;
-ধরি সংখ্যা c = 2;
-ধরি সংখ্যা ফল = a + b * c;
+ধরি সংখ্যা প্রথম = ১০;
+ধরি সংখ্যা দ্বিতীয় = ৫;
+ধরি সংখ্যা তৃতীয় = ২;
+ধরি সংখ্যা ফল = প্রথম + দ্বিতীয় * তৃতীয়;
 দেখাও "গণনার ফল:";
 দেখাও ফল;
 ```
+**Output:** `গণনার ফল:` → `২০`
+
+---
 
 ### If-Else Condition
 ```
-ধরি সংখ্যা বয়স = 16;
-যদি (বয়স > 17) শুরু
+ধরি সংখ্যা বয়স = ১৬;
+যদি (বয়স > ১৭) শুরু
     দেখাও "আপনি ভোট দিতে পারবেন!";
 শেষ
 নাহলে শুরু
     দেখাও "আপনি ভোটের বয়স হয়নি।";
 শেষ
 ```
+**Output:** `আপনি ভোটের বয়স হয়নি।`
 
-### While Loop (Part 2)
+---
+
+### Swap Variables
 ```
-ধরি সংখ্যা n = 5;
-ধরি সংখ্যা ফ্যাক্টরিয়াল = 1;
-ধরি সংখ্যা i = 1;
-যতক্ষণ (i <= n) শুরু
-    ফ্যাক্টরিয়াল = ফ্যাক্টরিয়াল * i;
-    i = i + 1;
+ধরি সংখ্যা প্রথম = ১০;
+ধরি সংখ্যা দ্বিতীয় = ২৫;
+ধরি সংখ্যা অস্থায়ী = প্রথম;
+প্রথম = দ্বিতীয়;
+দ্বিতীয় = অস্থায়ী;
+দেখাও "পরিবর্তনের পরে প্রথম:";
+দেখাও প্রথম;
+দেখাও "পরিবর্তনের পরে দ্বিতীয়:";
+দেখাও দ্বিতীয়;
+```
+**Output:** `২৫` then `১০`
+
+---
+
+### Circle Area (Decimal)
+```
+ধরি দশমিক পাই = ৩.১৪১৬;
+ধরি দশমিক ত্রিজ্যা = ৫.৫;
+ধরি দশমিক ক্ষেত্রফল = পাই * ত্রিজ্যা * ত্রিজ্যা;
+দেখাও "বৃত্তের ক্ষেত্রফল:";
+দেখাও ক্ষেত্রফল;
+```
+**Output:** `বৃত্তের ক্ষেত্রফল:` → `৯৫.০৩৩৪`
+
+---
+
+### Sum 1 to 10 — While Loop (Part 2)
+```
+ধরি সংখ্যা সীমা = ১০;
+ধরি সংখ্যা যোগফল = ০;
+ধরি সংখ্যা গণক = ১;
+
+যতক্ষণ (গণক <= সীমা) শুরু
+    যোগফল = যোগফল + গণক;
+    গণক = গণক + ১;
 শেষ
+
+দেখাও "১ থেকে ১০ এর যোগফল:";
+দেখাও যোগফল;
+```
+**Output:** `১ থেকে ১০ এর যোগফল:` → `৫৫`
+
+---
+
+### Factorial — While Loop (Part 2)
+```
+ধরি সংখ্যা মান = ৫;
+ধরি সংখ্যা ফ্যাক্টরিয়াল = ১;
+ধরি সংখ্যা গণক = ১;
+
+যতক্ষণ (গণক <= মান) শুরু
+    ফ্যাক্টরিয়াল = ফ্যাক্টরিয়াল * গণক;
+    গণক = গণক + ১;
+শেষ
+
 দেখাও "৫ এর ফ্যাক্টরিয়াল:";
 দেখাও ফ্যাক্টরিয়াল;
 ```
+**Output:** `৫ এর ফ্যাক্টরিয়াল:` → `১২০`
+
+---
 
 ### Fibonacci Sequence (Part 2)
 ```
-ধরি সংখ্যা a = 0;
-ধরি সংখ্যা b = 1;
-ধরি সংখ্যা সীমা = 8;
-ধরি সংখ্যা i = 0;
+ধরি সংখ্যা প্রথম = ০;
+ধরি সংখ্যা দ্বিতীয় = ১;
+ধরি সংখ্যা সীমা = ৮;
+ধরি সংখ্যা গণক = ০;
+
 দেখাও "ফিবোনাচি ধারা:";
-দেখাও a;
-দেখাও b;
-যতক্ষণ (i < সীমা) শুরু
-    ধরি সংখ্যা tmp = a + b;
-    a = b;
-    b = tmp;
-    দেখাও b;
-    i = i + 1;
+দেখাও প্রথম;
+দেখাও দ্বিতীয়;
+
+যতক্ষণ (গণক < সীমা) শুরু
+    ধরি সংখ্যা অস্থায়ী = প্রথম + দ্বিতীয়;
+    প্রথম = দ্বিতীয়;
+    দ্বিতীয় = অস্থায়ী;
+    দেখাও দ্বিতীয়;
+    গণক = গণক + ১;
 শেষ
 ```
+**Output:** `০, ১, ১, ২, ৩, ৫, ৮, ১৩, ২১, ৩৪`
+
+---
+
+### Countdown (Part 2)
+```
+ধরি সংখ্যা গণনা = ৫;
+দেখাও "উল্টো গণনা:";
+
+যতক্ষণ (গণনা > ০) শুরু
+    দেখাও গণনা;
+    গণনা = গণনা - ১;
+শেষ
+
+দেখাও "শেষ!";
+```
+**Output:** `৫, ৪, ৩, ২, ১, শেষ!`
 
 ---
 
@@ -205,34 +289,54 @@ Bangla-Syntax-Compiler/
 - No installation needed — just the `.exe` file!
 
 ### Run a Program
-```powershell
-# Run a .bsc file
-.\build\banglasyntax.exe examples\hello.bsc
+```cmd
+cd "Part2\Sayem"
 
-# View token stream (debug mode)
-.\build\banglasyntax.exe examples\math_test.bsc --tokens
+REM Compile .bsc → .py
+build\banglasyntax.exe examples\factorial_test.bsc
+
+REM Run output
+python examples\factorial_test.py
 ```
 
-### Example Output
+### Debug Token Mode
+```cmd
+build\banglasyntax.exe examples\math_test.bsc --tokens
+```
+
+### Example Compiler Output
 ```
 ====================================================
- বাংলা সিনট্যাক্স কম্পাইলার  --  পর্ব ১
+ বাংলা সিনট্যাক্স কম্পাইলার  --  পর্ব ২
  CSE-4114 | কম্পাইলার ডিজাইন সেশনাল
 ====================================================
  দলের সদস্য: জগন্নাথ (Jogonnath)
  দায়িত্ব  : ধাপ ১ -- শাব্দিক বিশ্লেষক (Lexer)
 ====================================================
 
-কম্পাইলেশন সফল!
+[ধাপ ১] শাব্দিক বিশ্লেষণ *** তোমার অংশ ***
+  -> ৪৫ টি টোকেন পাওয়া গেছে।
+
+[ধাপ ২] সিনট্যাক্স বিশ্লেষণ (Parsing)
+  -> ৬ টি স্টেটমেন্ট সহ AST তৈরি।
+
+[ধাপ ৩] অর্থ বিশ্লেষণ (Semantic Analysis)
+  -> টাইপ চেকিং সফল। ৩ টি চলক।
+
+[ধাপ ৪] Python কোড তৈরি (Code Generation)
+  -> Python আউটপুট: examples\factorial_test.py
+
+==================================================
+ কম্পাইলেশন সফল! (জগন্নাথর অংশ সম্পন্ন)
+==================================================
 ```
 
 ---
 
 ## 🛠️ Build from Source
 
-```powershell
-# Compile using g++
-g++ -o build/banglasyntax.exe src/main.cpp src/lexer.cpp src/parser.cpp src/semantic.cpp src/codegen.cpp -std=c++17
+```cmd
+g++ -o build\banglasyntax.exe src\main.cpp src\win_console.cpp src\lexer.cpp src\parser.cpp src\semantic.cpp src\codegen.cpp -std=c++17 -I src\
 ```
 
 ---
@@ -244,12 +348,12 @@ g++ -o build/banglasyntax.exe src/main.cpp src/lexer.cpp src/parser.cpp src/sema
 | `hello.bsc` | Simple print statement |
 | `math_test.bsc` | Arithmetic operations |
 | `age_check.bsc` | If-else condition |
-| `circle_area.bsc` | Area calculation |
+| `circle_area.bsc` | Area calculation (decimal) |
 | `swap.bsc` | Variable swapping |
 | `factorial_test.bsc` | Factorial using loop (Part 2) |
 | `fibonacci_test.bsc` | Fibonacci series (Part 2) |
 | `countdown.bsc` | Countdown loop (Part 2) |
-| `sum_loop.bsc` | Sum using loop (Part 2) |
+| `sum_loop.bsc` | Sum 1 to 10 (Part 2) |
 | `type_error.bsc` | Type mismatch error demo |
 | `undeclared_error.bsc` | Undeclared variable error demo |
 
