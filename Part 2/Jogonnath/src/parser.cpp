@@ -90,7 +90,7 @@ void Parser::synchronize() {
 ASTNodePtr Parser::parseStatement() {
     if (check(TokenType::DHORO))    return parseDeclaration();
     if (check(TokenType::JODI))     return parseIf();
-    if (check(TokenType::JOTOKHON)) return parseWhile();
+    // (WHILE loops removed for Part 1)
     if (check(TokenType::DEKHAO))   return parsePrint();
     if (check(TokenType::SHURU))    return parseBlock();
 
@@ -99,7 +99,7 @@ ASTNodePtr Parser::parseStatement() {
 
     Token& tok = peek();
     err.syntaxError(tok.line, tok.col,
-        "অপ্রত্যাশিত টোকেন '" + tok.value + "'। কোনো স্টেটমেন্ট আশা করা হয়েছিল।");
+        "অপ্রত্যাশিত টোকেন '" + tok.value + "'। কোনো স্টেটমেন্ট আশা করা হয়েছিল৷");
     throw std::runtime_error("syntax error");
 }
 
@@ -116,7 +116,7 @@ ASTNodePtr Parser::parseDeclaration() {
     else {
         Token& t = peek();
         err.syntaxError(t.line, t.col,
-            "'ধরি' লেখার পরে 'সংখ্যা' বা 'দশমিক' আশা করা হয়েছিল");
+            "'ধরি' লেখার পরে ত্যাগ (sankhya/doshomik) আশা করা হয়েছিল");
         throw std::runtime_error("syntax error");
     }
 
