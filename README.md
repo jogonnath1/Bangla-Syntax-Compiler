@@ -74,219 +74,218 @@ Source Code (.bsc)
 
 ```
 Bangla-Syntax-Compiler/
-├── 📂 Part 1/                        ← Part 1: Basic Compiler (Lexer + Parser + Semantic + CodeGen)
-│   ├── 📂 Jogonnath/                 ← Lexer (শাব্দিক বিশ্লেষক)
+├── 📂 Part 1/                          ← Part 1: Basic Compiler
+│   ├── 📂 Jogonnath/                   ← Lexer (শাব্দিক বিশ্লেষক)
 │   │   ├── src/
-│   │   │   ├── token.h              ← Token definitions
-│   │   │   ├── lexer.h / lexer.cpp  ← Lexer ★ (Jogonnath)
-│   │   │   ├── ast.h                ← AST node structures
-│   │   │   ├── parser.h / parser.cpp← Parser (Sayem)
-│   │   │   ├── semantic.h/.cpp      ← Semantic Analyzer (Ellen)
-│   │   │   ├── codegen.h/.cpp       ← Code Generator (Sami)
-│   │   │   ├── error.h              ← Error handling
-│   │   │   ├── bangla_utils.h       ← Bengali digit converter
-│   │   │   ├── win_console.h/.cpp   ← CMD Bengali font setup
-│   │   │   └── main.cpp             ← Entry point
+│   │   │   ├── token.h                 ← Token definitions
+│   │   │   ├── lexer.h / lexer.cpp     ← Lexer ★ (Jogonnath)
+│   │   │   ├── ast.h                   ← AST node structures
+│   │   │   ├── parser.h / parser.cpp   ← Parser (Sayem)
+│   │   │   ├── semantic.h / semantic.cpp← Semantic Analyzer (Ellen)
+│   │   │   ├── codegen.h / codegen.cpp ← Code Generator (Sami)
+│   │   │   ├── error.h                 ← Error handling
+│   │   │   ├── bangla_utils.h          ← Bengali digit converter
+│   │   │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+│   │   │   └── main.cpp                ← Entry point
 │   │   ├── build/
-│   │   │   └── banglasyntax.exe    ← Compiled binary
+│   │   │   └── banglasyntax.exe        ← Compiled binary
 │   │   ├── examples/
-│   │   │   ├── hello.bsc
-│   │   │   ├── math_test.bsc
-│   │   │   ├── age_check.bsc
-│   │   │   ├── circle_area.bsc
-│   │   │   ├── swap.bsc
-│   │   │   ├── type_error.bsc
-│   │   │   └── undeclared_error.bsc
-│   │   └── README.md
+│   │   │   ├── hello.bsc               ← সহজ প্রিন্ট
+│   │   │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+│   │   │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+│   │   │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+│   │   │   ├── swap.bsc                ← মান পরিবর্তন
+│   │   │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+│   │   │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+│   │   └── README.md                   ← Lexer documentation
 │   │
-│   ├── 📂 Sayem/                     ← Parser (সিনট্যাক্স বিশ্লেষক)
+│   ├── 📂 Sayem/                       ← Parser (সিনট্যাক্স বিশ্লেষক)
 │   │   ├── src/
-│   │   │   ├── token.h
-│   │   │   ├── lexer.h / lexer.cpp
-│   │   │   ├── ast.h
-│   │   │   ├── parser.h / parser.cpp ← Parser ★ (Sayem)
-│   │   │   ├── semantic.h/.cpp
-│   │   │   ├── codegen.h/.cpp
-│   │   │   ├── error.h
-│   │   │   ├── bangla_utils.h
-│   │   │   ├── win_console.h/.cpp
-│   │   │   └── main.cpp
+│   │   │   ├── token.h                 ← Token definitions
+│   │   │   ├── lexer.h / lexer.cpp     ← Lexer (Jogonnath)
+│   │   │   ├── ast.h                   ← AST node structures
+│   │   │   ├── parser.h / parser.cpp   ← Parser ★ (Sayem)
+│   │   │   ├── semantic.h / semantic.cpp← Semantic Analyzer (Ellen)
+│   │   │   ├── codegen.h / codegen.cpp ← Code Generator (Sami)
+│   │   │   ├── error.h                 ← Error handling
+│   │   │   ├── bangla_utils.h          ← Bengali digit converter
+│   │   │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+│   │   │   └── main.cpp                ← Entry point
 │   │   ├── build/
-│   │   │   └── banglasyntax.exe
+│   │   │   └── banglasyntax.exe        ← Compiled binary
 │   │   ├── examples/
-│   │   │   ├── hello.bsc
-│   │   │   ├── math_test.bsc
-│   │   │   ├── age_check.bsc
-│   │   │   ├── circle_area.bsc
-│   │   │   ├── swap.bsc
-│   │   │   ├── type_error.bsc
-│   │   │   └── undeclared_error.bsc
-│   │   └── README.md
+│   │   │   ├── hello.bsc               ← সহজ প্রিন্ট
+│   │   │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+│   │   │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+│   │   │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+│   │   │   ├── swap.bsc                ← মান পরিবর্তন
+│   │   │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+│   │   │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+│   │   └── README.md                   ← Parser documentation & BNF grammar
 │   │
-│   ├── 📂 Ellen/                     ← Semantic Analyzer (অর্থ বিশ্লেষক)
+│   ├── 📂 Ellen/                       ← Semantic Analyzer (অর্থ বিশ্লেষক)
 │   │   ├── src/
-│   │   │   ├── token.h
-│   │   │   ├── lexer.h / lexer.cpp
-│   │   │   ├── ast.h
-│   │   │   ├── parser.h / parser.cpp
-│   │   │   ├── semantic.h/.cpp       ← Semantic Analyzer ★ (Ellen)
-│   │   │   ├── codegen.h/.cpp
-│   │   │   ├── error.h
-│   │   │   ├── bangla_utils.h
-│   │   │   ├── win_console.h/.cpp
-│   │   │   └── main.cpp
+│   │   │   ├── token.h                 ← Token definitions
+│   │   │   ├── lexer.h / lexer.cpp     ← Lexer (Jogonnath)
+│   │   │   ├── ast.h                   ← AST node structures
+│   │   │   ├── parser.h / parser.cpp   ← Parser (Sayem)
+│   │   │   ├── semantic.h / semantic.cpp← Semantic Analyzer ★ (Ellen)
+│   │   │   ├── codegen.h / codegen.cpp ← Code Generator (Sami)
+│   │   │   ├── error.h                 ← Error handling
+│   │   │   ├── bangla_utils.h          ← Bengali digit converter
+│   │   │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+│   │   │   └── main.cpp                ← Entry point
 │   │   ├── build/
-│   │   │   └── banglasyntax.exe
+│   │   │   └── banglasyntax.exe        ← Compiled binary
 │   │   ├── examples/
-│   │   │   ├── hello.bsc
-│   │   │   ├── math_test.bsc
-│   │   │   ├── age_check.bsc
-│   │   │   ├── circle_area.bsc
-│   │   │   ├── swap.bsc
-│   │   │   ├── type_error.bsc
-│   │   │   └── undeclared_error.bsc
-│   │   └── README.md
+│   │   │   ├── hello.bsc               ← সহজ প্রিন্ট
+│   │   │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+│   │   │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+│   │   │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+│   │   │   ├── swap.bsc                ← মান পরিবর্তন
+│   │   │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+│   │   │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+│   │   └── README.md                   ← Semantic Analyzer documentation
 │   │
-│   └── 📂 Sami/                      ← Code Generator (কোড তৈরিকারক)
+│   └── 📂 Sami/                        ← Code Generator (কোড তৈরিকারক)
 │       ├── src/
-│       │   ├── token.h
-│       │   ├── lexer.h / lexer.cpp
-│       │   ├── ast.h
-│       │   ├── parser.h / parser.cpp
-│       │   ├── semantic.h/.cpp
-│       │   ├── codegen.h/.cpp        ← Code Generator ★ (Sami)
-│       │   ├── error.h
-│       │   ├── bangla_utils.h
-│       │   ├── win_console.h/.cpp
-│       │   └── main.cpp
+│       │   ├── token.h                 ← Token definitions
+│       │   ├── lexer.h / lexer.cpp     ← Lexer (Jogonnath)
+│       │   ├── ast.h                   ← AST node structures
+│       │   ├── parser.h / parser.cpp   ← Parser (Sayem)
+│       │   ├── semantic.h / semantic.cpp← Semantic Analyzer (Ellen)
+│       │   ├── codegen.h / codegen.cpp ← Code Generator ★ (Sami)
+│       │   ├── error.h                 ← Error handling
+│       │   ├── bangla_utils.h          ← Bengali digit converter
+│       │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+│       │   └── main.cpp                ← Entry point
 │       ├── build/
-│       │   └── banglasyntax.exe
+│       │   └── banglasyntax.exe        ← Compiled binary
 │       ├── examples/
-│       │   ├── hello.bsc
-│       │   ├── math_test.bsc
-│       │   ├── age_check.bsc
-│       │   ├── circle_area.bsc
-│       │   ├── swap.bsc
-│       │   ├── type_error.bsc
-│       │   └── undeclared_error.bsc
-│       └── README.md
+│       │   ├── hello.bsc               ← সহজ প্রিন্ট
+│       │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+│       │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+│       │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+│       │   ├── swap.bsc                ← মান পরিবর্তন
+│       │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+│       │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+│       └── README.md                   ← Code Generator documentation
 │
-└── 📂 Part 2/                        ← Part 2: Extended Compiler (যতক্ষণ While Loop)
-    ├── 📂 Jogonnath/                 ← Extended Lexer (যতক্ষণ সমর্থন)
+└── 📂 Part 2/                          ← Part 2: Extended Compiler (যতক্ষণ While Loop)
+    ├── 📂 Jogonnath/                   ← Extended Lexer (যতক্ষণ সমর্থন)
     │   ├── src/
-    │   │   ├── token.h              ← Token definitions (JOTOKHON added)
-    │   │   ├── lexer.h / lexer.cpp  ← Extended Lexer ★ (Jogonnath)
-    │   │   ├── ast.h                ← AST nodes (WhileNode added)
-    │   │   ├── parser.h / parser.cpp← While-loop Parser (Sayem)
-    │   │   ├── semantic.h/.cpp      ← Loop-aware Semantic (Ellen)
-    │   │   ├── codegen.h/.cpp       ← Loop Code Generator (Sami)
-    │   │   ├── error.h
-    │   │   ├── bangla_utils.h
-    │   │   ├── win_console.h/.cpp
-    │   │   └── main.cpp
+    │   │   ├── token.h                 ← Token definitions (JOTOKHON keyword added)
+    │   │   ├── lexer.h / lexer.cpp     ← Extended Lexer ★ (Jogonnath)
+    │   │   ├── ast.h                   ← AST nodes (WhileNode added)
+    │   │   ├── parser.h / parser.cpp   ← While-loop Parser (Sayem)
+    │   │   ├── semantic.h / semantic.cpp← Loop-aware Semantic Analyzer (Ellen)
+    │   │   ├── codegen.h / codegen.cpp ← Loop Code Generator (Sami)
+    │   │   ├── error.h                 ← Error handling
+    │   │   ├── bangla_utils.h          ← Bengali digit converter
+    │   │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+    │   │   └── main.cpp                ← Entry point
     │   ├── build/
-    │   │   └── banglasyntax.exe
+    │   │   └── banglasyntax.exe        ← Compiled binary
     │   ├── examples/
-    │   │   ├── hello.bsc
-    │   │   ├── math_test.bsc
-    │   │   ├── age_check.bsc
-    │   │   ├── circle_area.bsc
-    │   │   ├── swap.bsc
-    │   │   ├── sum_loop.bsc         ← যোগফল লুপ (৫৫)
-    │   │   ├── factorial_test.bsc   ← ফ্যাক্টরিয়াল (১২০)
-    │   │   ├── fibonacci_test.bsc   ← ফিবোনাচি ধারা
-    │   │   ├── countdown.bsc        ← উল্টো গণনা
-    │   │   ├── type_error.bsc
-    │   │   └── undeclared_error.bsc
-    │   └── README.md
+    │   │   ├── hello.bsc               ← সহজ প্রিন্ট
+    │   │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+    │   │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+    │   │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+    │   │   ├── swap.bsc                ← মান পরিবর্তন
+    │   │   ├── sum_loop.bsc            ← যোগফল লুপ (আউটপুট: ৫৫)
+    │   │   ├── factorial_test.bsc      ← ফ্যাক্টরিয়াল লুপ (আউটপুট: ১২০)
+    │   │   ├── fibonacci_test.bsc      ← ফিবোনাচি ধারা লুপ
+    │   │   ├── countdown.bsc           ← উল্টো গণনা লুপ
+    │   │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+    │   │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+    │   └── README.md                   ← Extended Lexer documentation
     │
-    ├── 📂 Sayem/                     ← Extended Parser (যতক্ষণ লুপ পার্সিং)
+    ├── 📂 Sayem/                       ← Extended Parser (যতক্ষণ লুপ পার্সিং)
     │   ├── src/
-    │   │   ├── token.h
-    │   │   ├── lexer.h / lexer.cpp
-    │   │   ├── ast.h
-    │   │   ├── parser.h / parser.cpp ← Extended Parser ★ (Sayem)
-    │   │   ├── semantic.h/.cpp
-    │   │   ├── codegen.h/.cpp
-    │   │   ├── error.h
-    │   │   ├── bangla_utils.h
-    │   │   ├── win_console.h/.cpp
-    │   │   └── main.cpp
+    │   │   ├── token.h                 ← Token definitions (JOTOKHON keyword added)
+    │   │   ├── lexer.h / lexer.cpp     ← Extended Lexer (Jogonnath)
+    │   │   ├── ast.h                   ← AST nodes (WhileNode added)
+    │   │   ├── parser.h / parser.cpp   ← Extended Parser ★ (Sayem)
+    │   │   ├── semantic.h / semantic.cpp← Loop-aware Semantic Analyzer (Ellen)
+    │   │   ├── codegen.h / codegen.cpp ← Loop Code Generator (Sami)
+    │   │   ├── error.h                 ← Error handling
+    │   │   ├── bangla_utils.h          ← Bengali digit converter
+    │   │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+    │   │   └── main.cpp                ← Entry point
     │   ├── build/
-    │   │   └── banglasyntax.exe
+    │   │   └── banglasyntax.exe        ← Compiled binary
     │   ├── examples/
-    │   │   ├── hello.bsc
-    │   │   ├── math_test.bsc
-    │   │   ├── age_check.bsc
-    │   │   ├── circle_area.bsc
-    │   │   ├── swap.bsc
-    │   │   ├── sum_loop.bsc
-    │   │   ├── factorial_test.bsc
-    │   │   ├── fibonacci_test.bsc
-    │   │   ├── countdown.bsc
-    │   │   ├── type_error.bsc
-    │   │   └── undeclared_error.bsc
-    │   └── README.md
+    │   │   ├── hello.bsc               ← সহজ প্রিন্ট
+    │   │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+    │   │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+    │   │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+    │   │   ├── swap.bsc                ← মান পরিবর্তন
+    │   │   ├── sum_loop.bsc            ← যোগফল লুপ (আউটপুট: ৫৫)
+    │   │   ├── factorial_test.bsc      ← ফ্যাক্টরিয়াল লুপ (আউটপুট: ১২০)
+    │   │   ├── fibonacci_test.bsc      ← ফিবোনাচি ধারা লুপ
+    │   │   ├── countdown.bsc           ← উল্টো গণনা লুপ
+    │   │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+    │   │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+    │   └── README.md                   ← Extended Parser documentation & BNF
     │
-    ├── 📂 Ellen/                     ← Extended Semantic Analyzer
+    ├── 📂 Ellen/                       ← Extended Semantic Analyzer
     │   ├── src/
-    │   │   ├── token.h
-    │   │   ├── lexer.h / lexer.cpp
-    │   │   ├── ast.h
-    │   │   ├── parser.h / parser.cpp
-    │   │   ├── semantic.h/.cpp       ← Extended Semantic ★ (Ellen)
-    │   │   ├── codegen.h/.cpp
-    │   │   ├── error.h
-    │   │   ├── bangla_utils.h
-    │   │   ├── win_console.h/.cpp
-    │   │   └── main.cpp
+    │   │   ├── token.h                 ← Token definitions (JOTOKHON keyword added)
+    │   │   ├── lexer.h / lexer.cpp     ← Extended Lexer (Jogonnath)
+    │   │   ├── ast.h                   ← AST nodes (WhileNode added)
+    │   │   ├── parser.h / parser.cpp   ← Extended Parser (Sayem)
+    │   │   ├── semantic.h / semantic.cpp← Extended Semantic Analyzer ★ (Ellen)
+    │   │   ├── codegen.h / codegen.cpp ← Loop Code Generator (Sami)
+    │   │   ├── error.h                 ← Error handling
+    │   │   ├── bangla_utils.h          ← Bengali digit converter
+    │   │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+    │   │   └── main.cpp                ← Entry point
     │   ├── build/
-    │   │   └── banglasyntax.exe
+    │   │   └── banglasyntax.exe        ← Compiled binary
     │   ├── examples/
-    │   │   ├── hello.bsc
-    │   │   ├── math_test.bsc
-    │   │   ├── age_check.bsc
-    │   │   ├── circle_area.bsc
-    │   │   ├── swap.bsc
-    │   │   ├── sum_loop.bsc
-    │   │   ├── factorial_test.bsc
-    │   │   ├── fibonacci_test.bsc
-    │   │   ├── countdown.bsc
-    │   │   ├── type_error.bsc
-    │   │   └── undeclared_error.bsc
-    │   └── README.md
+    │   │   ├── hello.bsc               ← সহজ প্রিন্ট
+    │   │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+    │   │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+    │   │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+    │   │   ├── swap.bsc                ← মান পরিবর্তন
+    │   │   ├── sum_loop.bsc            ← যোগফল লুপ (আউটপুট: ৫৫)
+    │   │   ├── factorial_test.bsc      ← ফ্যাক্টরিয়াল লুপ (আউটপুট: ১২০)
+    │   │   ├── fibonacci_test.bsc      ← ফিবোনাচি ধারা লুপ
+    │   │   ├── countdown.bsc           ← উল্টো গণনা লুপ
+    │   │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+    │   │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+    │   └── README.md                   ← Extended Semantic Analyzer documentation
     │
-    └── 📂 Sami/                      ← Extended Code Generator
+    └── 📂 Sami/                        ← Extended Code Generator
         ├── src/
-        │   ├── token.h
-        │   ├── lexer.h / lexer.cpp
-        │   ├── ast.h
-        │   ├── parser.h / parser.cpp
-        │   ├── semantic.h/.cpp
-        │   ├── codegen.h/.cpp        ← Extended CodeGen ★ (Sami)
-        │   ├── error.h
-        │   ├── bangla_utils.h
-        │   ├── win_console.h/.cpp
-        │   └── main.cpp
+        │   ├── token.h                 ← Token definitions (JOTOKHON keyword added)
+        │   ├── lexer.h / lexer.cpp     ← Extended Lexer (Jogonnath)
+        │   ├── ast.h                   ← AST nodes (WhileNode added)
+        │   ├── parser.h / parser.cpp   ← Extended Parser (Sayem)
+        │   ├── semantic.h / semantic.cpp← Extended Semantic Analyzer (Ellen)
+        │   ├── codegen.h / codegen.cpp ← Extended Code Generator ★ (Sami)
+        │   ├── error.h                 ← Error handling
+        │   ├── bangla_utils.h          ← Bengali digit converter
+        │   ├── win_console.h/.cpp      ← CMD Bengali font setup
+        │   └── main.cpp                ← Entry point
         ├── build/
-        │   └── banglasyntax.exe
+        │   └── banglasyntax.exe        ← Compiled binary
         ├── examples/
-        │   ├── hello.bsc
-        │   ├── math_test.bsc
-        │   ├── age_check.bsc
-        │   ├── circle_area.bsc
-        │   ├── swap.bsc
-        │   ├── sum_loop.bsc
-        │   ├── factorial_test.bsc
-        │   ├── fibonacci_test.bsc
-        │   ├── countdown.bsc
-        │   ├── type_error.bsc
-        │   └── undeclared_error.bsc
-        └── README.md
+        │   ├── hello.bsc               ← সহজ প্রিন্ট
+        │   ├── math_test.bsc           ← গণিতের হিসাব (আউটপুট: ২০)
+        │   ├── age_check.bsc           ← যদি-নাহলে শর্ত
+        │   ├── circle_area.bsc         ← বৃত্তের ক্ষেত্রফল (আউটপুট: ৯৫.০৩৩৪)
+        │   ├── swap.bsc                ← মান পরিবর্তন
+        │   ├── sum_loop.bsc            ← যোগফল লুপ (আউটপুট: ৫৫)
+        │   ├── factorial_test.bsc      ← ফ্যাক্টরিয়াল লুপ (আউটপুট: ১২০)
+        │   ├── fibonacci_test.bsc      ← ফিবোনাচি ধারা লুপ
+        │   ├── countdown.bsc           ← উল্টো গণনা লুপ
+        │   ├── type_error.bsc          ← ধরন ভুলের উদাহরণ
+        │   └── undeclared_error.bsc    ← অঘোষিত চলকের উদাহরণ
+        └── README.md                   ← Extended Code Generator documentation
 ```
 
 ---
-
 ## 🔤 Bangla Keyword Reference
 
 | Bengali Keyword | English Equivalent | Description |
