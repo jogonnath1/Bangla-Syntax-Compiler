@@ -75,15 +75,17 @@ Source Code (.bsc)
 ```
 Bangla-Syntax-Compiler/
 ├── 📂 Part 1/                        ← Part 1: Basic Compiler (Lexer + Parser + Semantic + CodeGen)
-│   ├── 📂 Jogonnath/                 ← Lexer implementation
+│   ├── 📂 Jogonnath/                 ← Lexer (শাব্দিক বিশ্লেষক)
 │   │   ├── src/
 │   │   │   ├── token.h              ← Token definitions
-│   │   │   ├── lexer.h / lexer.cpp  ← Lexer (Jogonnath)
+│   │   │   ├── lexer.h / lexer.cpp  ← Lexer ★ (Jogonnath)
 │   │   │   ├── ast.h                ← AST node structures
 │   │   │   ├── parser.h / parser.cpp← Parser (Sayem)
 │   │   │   ├── semantic.h/.cpp      ← Semantic Analyzer (Ellen)
 │   │   │   ├── codegen.h/.cpp       ← Code Generator (Sami)
 │   │   │   ├── error.h              ← Error handling
+│   │   │   ├── bangla_utils.h       ← Bengali digit converter
+│   │   │   ├── win_console.h/.cpp   ← CMD Bengali font setup
 │   │   │   └── main.cpp             ← Entry point
 │   │   ├── build/
 │   │   │   └── banglasyntax.exe    ← Compiled binary
@@ -96,17 +98,191 @@ Bangla-Syntax-Compiler/
 │   │   │   ├── type_error.bsc
 │   │   │   └── undeclared_error.bsc
 │   │   └── README.md
-│   ├── 📂 Ellen/                     ← Ellen's contribution
-│   ├── 📂 Sami/                      ← Sami's contribution
-│   └── 📂 Sayem/                     ← Sayem's contribution
+│   │
+│   ├── 📂 Sayem/                     ← Parser (সিনট্যাক্স বিশ্লেষক)
+│   │   ├── src/
+│   │   │   ├── token.h
+│   │   │   ├── lexer.h / lexer.cpp
+│   │   │   ├── ast.h
+│   │   │   ├── parser.h / parser.cpp ← Parser ★ (Sayem)
+│   │   │   ├── semantic.h/.cpp
+│   │   │   ├── codegen.h/.cpp
+│   │   │   ├── error.h
+│   │   │   ├── bangla_utils.h
+│   │   │   ├── win_console.h/.cpp
+│   │   │   └── main.cpp
+│   │   ├── build/
+│   │   │   └── banglasyntax.exe
+│   │   ├── examples/
+│   │   │   ├── hello.bsc
+│   │   │   ├── math_test.bsc
+│   │   │   ├── age_check.bsc
+│   │   │   ├── circle_area.bsc
+│   │   │   ├── swap.bsc
+│   │   │   ├── type_error.bsc
+│   │   │   └── undeclared_error.bsc
+│   │   └── README.md
+│   │
+│   ├── 📂 Ellen/                     ← Semantic Analyzer (অর্থ বিশ্লেষক)
+│   │   ├── src/
+│   │   │   ├── token.h
+│   │   │   ├── lexer.h / lexer.cpp
+│   │   │   ├── ast.h
+│   │   │   ├── parser.h / parser.cpp
+│   │   │   ├── semantic.h/.cpp       ← Semantic Analyzer ★ (Ellen)
+│   │   │   ├── codegen.h/.cpp
+│   │   │   ├── error.h
+│   │   │   ├── bangla_utils.h
+│   │   │   ├── win_console.h/.cpp
+│   │   │   └── main.cpp
+│   │   ├── build/
+│   │   │   └── banglasyntax.exe
+│   │   ├── examples/
+│   │   │   ├── hello.bsc
+│   │   │   ├── math_test.bsc
+│   │   │   ├── age_check.bsc
+│   │   │   ├── circle_area.bsc
+│   │   │   ├── swap.bsc
+│   │   │   ├── type_error.bsc
+│   │   │   └── undeclared_error.bsc
+│   │   └── README.md
+│   │
+│   └── 📂 Sami/                      ← Code Generator (কোড তৈরিকারক)
+│       ├── src/
+│       │   ├── token.h
+│       │   ├── lexer.h / lexer.cpp
+│       │   ├── ast.h
+│       │   ├── parser.h / parser.cpp
+│       │   ├── semantic.h/.cpp
+│       │   ├── codegen.h/.cpp        ← Code Generator ★ (Sami)
+│       │   ├── error.h
+│       │   ├── bangla_utils.h
+│       │   ├── win_console.h/.cpp
+│       │   └── main.cpp
+│       ├── build/
+│       │   └── banglasyntax.exe
+│       ├── examples/
+│       │   ├── hello.bsc
+│       │   ├── math_test.bsc
+│       │   ├── age_check.bsc
+│       │   ├── circle_area.bsc
+│       │   ├── swap.bsc
+│       │   ├── type_error.bsc
+│       │   └── undeclared_error.bsc
+│       └── README.md
 │
-└── 📂 Part 2/                        ← Part 2: Extended Compiler (Loops + Advanced Features)
-    ├── 📂 Jogonnath/                 ← Extended Lexer
-    │   ├── src/ build/ examples/
+└── 📂 Part 2/                        ← Part 2: Extended Compiler (যতক্ষণ While Loop)
+    ├── 📂 Jogonnath/                 ← Extended Lexer (যতক্ষণ সমর্থন)
+    │   ├── src/
+    │   │   ├── token.h              ← Token definitions (JOTOKHON added)
+    │   │   ├── lexer.h / lexer.cpp  ← Extended Lexer ★ (Jogonnath)
+    │   │   ├── ast.h                ← AST nodes (WhileNode added)
+    │   │   ├── parser.h / parser.cpp← While-loop Parser (Sayem)
+    │   │   ├── semantic.h/.cpp      ← Loop-aware Semantic (Ellen)
+    │   │   ├── codegen.h/.cpp       ← Loop Code Generator (Sami)
+    │   │   ├── error.h
+    │   │   ├── bangla_utils.h
+    │   │   ├── win_console.h/.cpp
+    │   │   └── main.cpp
+    │   ├── build/
+    │   │   └── banglasyntax.exe
+    │   ├── examples/
+    │   │   ├── hello.bsc
+    │   │   ├── math_test.bsc
+    │   │   ├── age_check.bsc
+    │   │   ├── circle_area.bsc
+    │   │   ├── swap.bsc
+    │   │   ├── sum_loop.bsc         ← যোগফল লুপ (৫৫)
+    │   │   ├── factorial_test.bsc   ← ফ্যাক্টরিয়াল (১২০)
+    │   │   ├── fibonacci_test.bsc   ← ফিবোনাচি ধারা
+    │   │   ├── countdown.bsc        ← উল্টো গণনা
+    │   │   ├── type_error.bsc
+    │   │   └── undeclared_error.bsc
     │   └── README.md
-    ├── 📂 Ellen/
-    ├── 📂 Sami/
-    └── 📂 Sayem/
+    │
+    ├── 📂 Sayem/                     ← Extended Parser (যতক্ষণ লুপ পার্সিং)
+    │   ├── src/
+    │   │   ├── token.h
+    │   │   ├── lexer.h / lexer.cpp
+    │   │   ├── ast.h
+    │   │   ├── parser.h / parser.cpp ← Extended Parser ★ (Sayem)
+    │   │   ├── semantic.h/.cpp
+    │   │   ├── codegen.h/.cpp
+    │   │   ├── error.h
+    │   │   ├── bangla_utils.h
+    │   │   ├── win_console.h/.cpp
+    │   │   └── main.cpp
+    │   ├── build/
+    │   │   └── banglasyntax.exe
+    │   ├── examples/
+    │   │   ├── hello.bsc
+    │   │   ├── math_test.bsc
+    │   │   ├── age_check.bsc
+    │   │   ├── circle_area.bsc
+    │   │   ├── swap.bsc
+    │   │   ├── sum_loop.bsc
+    │   │   ├── factorial_test.bsc
+    │   │   ├── fibonacci_test.bsc
+    │   │   ├── countdown.bsc
+    │   │   ├── type_error.bsc
+    │   │   └── undeclared_error.bsc
+    │   └── README.md
+    │
+    ├── 📂 Ellen/                     ← Extended Semantic Analyzer
+    │   ├── src/
+    │   │   ├── token.h
+    │   │   ├── lexer.h / lexer.cpp
+    │   │   ├── ast.h
+    │   │   ├── parser.h / parser.cpp
+    │   │   ├── semantic.h/.cpp       ← Extended Semantic ★ (Ellen)
+    │   │   ├── codegen.h/.cpp
+    │   │   ├── error.h
+    │   │   ├── bangla_utils.h
+    │   │   ├── win_console.h/.cpp
+    │   │   └── main.cpp
+    │   ├── build/
+    │   │   └── banglasyntax.exe
+    │   ├── examples/
+    │   │   ├── hello.bsc
+    │   │   ├── math_test.bsc
+    │   │   ├── age_check.bsc
+    │   │   ├── circle_area.bsc
+    │   │   ├── swap.bsc
+    │   │   ├── sum_loop.bsc
+    │   │   ├── factorial_test.bsc
+    │   │   ├── fibonacci_test.bsc
+    │   │   ├── countdown.bsc
+    │   │   ├── type_error.bsc
+    │   │   └── undeclared_error.bsc
+    │   └── README.md
+    │
+    └── 📂 Sami/                      ← Extended Code Generator
+        ├── src/
+        │   ├── token.h
+        │   ├── lexer.h / lexer.cpp
+        │   ├── ast.h
+        │   ├── parser.h / parser.cpp
+        │   ├── semantic.h/.cpp
+        │   ├── codegen.h/.cpp        ← Extended CodeGen ★ (Sami)
+        │   ├── error.h
+        │   ├── bangla_utils.h
+        │   ├── win_console.h/.cpp
+        │   └── main.cpp
+        ├── build/
+        │   └── banglasyntax.exe
+        ├── examples/
+        │   ├── hello.bsc
+        │   ├── math_test.bsc
+        │   ├── age_check.bsc
+        │   ├── circle_area.bsc
+        │   ├── swap.bsc
+        │   ├── sum_loop.bsc
+        │   ├── factorial_test.bsc
+        │   ├── fibonacci_test.bsc
+        │   ├── countdown.bsc
+        │   ├── type_error.bsc
+        │   └── undeclared_error.bsc
+        └── README.md
 ```
 
 ---
