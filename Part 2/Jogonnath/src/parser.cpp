@@ -90,7 +90,7 @@ void Parser::synchronize() {
 ASTNodePtr Parser::parseStatement() {
     if (check(TokenType::DHORO))    return parseDeclaration();
     if (check(TokenType::JODI))     return parseIf();
-    // (WHILE loops removed for Part 1)
+    if (check(TokenType::JOTOKHON)) return parseWhile();
     if (check(TokenType::DEKHAO))   return parsePrint();
     if (check(TokenType::SHURU))    return parseBlock();
 
