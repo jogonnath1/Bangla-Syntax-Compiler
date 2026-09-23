@@ -1,6 +1,6 @@
 // =====================================================
-//  বাংলা সিনট্যাক্স কম্পাইলার - জগন্নাথ (Lexer)
-//  পর্ব ২ - যতক্ষণ লুপ
+//  বাংলা সিনট্যাক্স কম্পাইলার - Sami (Code Generator)
+//  পর্ব 2 - যতক্ষণ লুপ
 //  CSE-4114 Compiler Design and Construction Sessional
 //  Leading University, Sylhet
 // =====================================================
@@ -42,7 +42,6 @@ static std::string deriveOutput(const std::string& in) {
 }
 
 int main(int argc, char* argv[]) {
-    // UTF-8 এবং বাংলা ফন্ট সেট করো
     system("chcp 65001 > nul 2>&1");
     setBengaliFont();
 
@@ -51,8 +50,8 @@ int main(int argc, char* argv[]) {
     std::cout << "   বাংলা সিনট্যাক্স কম্পাইলার  --  পর্ব ২ (যতক্ষণ লুপ)\n";
     std::cout << "   CSE-4114 | কম্পাইলার ডিজাইন সেশনাল\n";
     std::cout << "  ====================================================\n";
-    std::cout << "   দলের সদস্য: জগন্নাথ (Jogonnath)\n";
-    std::cout << "   দায়িত্ব  : ধাপ ১ -- শাব্দিক বিশ্লেষক (Lexer)\n";
+    std::cout << "   দলের সদস্য: Sami\n";
+    std::cout << "   দায়িত্ব  : ধাপ ৪ -- কোড তৈরিকারক (Code Generator)\n";
     std::cout << "  ====================================================\n\n";
 
     if (argc < 2) {
@@ -63,9 +62,9 @@ int main(int argc, char* argv[]) {
     bool dumpTokens = (argc >= 3 && std::string(argv[2]) == "--tokens");
     ErrorHandler err;
 
-    // ── ধাপ ১: শাব্দিক বিশ্লেষণ ─────────────────────────────────
+    // -- ধাপ ১: শাব্দিক বিশ্লেষণ
     std::cout << "--------------------------------------------------\n";
-    std::cout << "[ধাপ ১] শাব্দিক বিশ্লেষণ (Lexical Analysis) *** তোমার অংশ ***\n";
+    std::cout << "[ধাপ ১] শাব্দিক বিশ্লেষণ (Lexical Analysis)\n";
     std::cout << "        দায়িত্ব: জগন্নাথ (Lexer)\n";
     std::cout << "--------------------------------------------------\n";
     std::string source = readFile(inputPath);
@@ -79,7 +78,7 @@ int main(int argc, char* argv[]) {
     if (err.hasErrors()) { err.printAll(); std::cerr << "BSC: শাব্দিক ভুল।\n"; return 1; }
     std::cout << "  -> " << বাংলাসংখ্যা(tokens.size()) << " টি টোকেন পাওয়া গেছে।\n\n";
 
-    // ── ধাপ ২: পার্সিং ───────────────────────────────────────────
+    // -- ধাপ ২: পার্সিং
     std::cout << "--------------------------------------------------\n";
     std::cout << "[ধাপ ২] সিনট্যাক্স বিশ্লেষণ (Parsing)\n";
     std::cout << "        দায়িত্ব: সায়েম (Parser)\n";
@@ -89,7 +88,7 @@ int main(int argc, char* argv[]) {
     if (err.hasErrors()) { err.printAll(); std::cerr << "BSC: সিনট্যাক্স ভুল।\n"; return 1; }
     std::cout << "  -> " << বাংলাসংখ্যা(program->statements.size()) << " টি স্টেটমেন্ট সহ AST তৈরি।\n\n";
 
-    // ── ধাপ ৩: অর্থ বিশ্লেষণ ────────────────────────────────────
+    // -- ধাপ ৩: অর্থ বিশ্লেষণ
     std::cout << "--------------------------------------------------\n";
     std::cout << "[ধাপ ৩] অর্থ বিশ্লেষণ (Semantic Analysis)\n";
     std::cout << "        দায়িত্ব: এলেন (Semantic Analyzer)\n";
@@ -99,9 +98,9 @@ int main(int argc, char* argv[]) {
     if (err.hasErrors()) { err.printAll(); std::cerr << "BSC: অর্থগত ভুল।\n"; return 1; }
     std::cout << "  -> টাইপ চেকিং সফল। " << বাংলাসংখ্যা(semantic.getSymbolTable().size()) << " টি চলক।\n\n";
 
-    // ── ধাপ ৪: কোড তৈরি ─────────────────────────────────────────
+    // -- ধাপ ৪: কোড তৈরি
     std::cout << "--------------------------------------------------\n";
-    std::cout << "[ধাপ ৪] Python কোড তৈরি (Code Generation)\n";
+    std::cout << "[ধাপ ৪] Python কোড তৈরি (Code Generation) *** তোমার অংশ ***\n";
     std::cout << "        দায়িত্ব: সামি (Code Generator)\n";
     std::cout << "--------------------------------------------------\n";
     CodeGenerator codegen(err);
@@ -112,7 +111,7 @@ int main(int argc, char* argv[]) {
     std::cout << "  -> Python আউটপুট: " << out << "\n\n";
 
     std::cout << "==================================================\n";
-    std::cout << " কম্পাইলেশন সফল! (জগন্নাথর অংশ সম্পন্ন)\n";
+    std::cout << " কম্পাইলেশন সফল! (Sami এর অংশ সম্পন্ন)\n";
     std::cout << " প্রোগ্রাম চালান: python " << out << "\n";
     std::cout << "==================================================\n\n";
     return 0;
